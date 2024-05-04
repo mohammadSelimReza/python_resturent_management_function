@@ -13,7 +13,7 @@ def customer_menu():
     address = input("Enter your address:")
     customer = Customer(name=name,email=email,phone=phone,address=address)
     while True:
-        print(f"Welcome {customer.name} To Our {res}")
+        print(f"Welcome {customer.name} To Our {res.name}")
         print("1. View Menu")
         print("2. Add To Cart")
         print("3. View Cart")
@@ -21,7 +21,7 @@ def customer_menu():
         print("5. Exit")
         choice = int(input("Enter your choice:"))
         if choice == 1:
-            customer.view_menu(res)
+            customer.view_menu(res,customer)
         elif choice == 2:
             item_name = input("Enter your order:")
             item_quantity = int(input("Enter the quantity:"))
@@ -94,3 +94,19 @@ def admin_menu():
             print("Invalid option")
             print("Try to enter valid option")
             choice = int(input("Enter valid choice"))
+            
+while True:
+    print(f"Welcome to {res.name}")
+    print("1. Customer")
+    print("2. Admin")
+    print("3. Exit")
+    choice = int(input("Enter you choice:"))
+    if choice == 1:
+        customer_menu()
+    elif choice == 2:
+        admin_menu()
+    elif choice == 3:
+        break
+    else:
+        print("Invalid option")
+        break
